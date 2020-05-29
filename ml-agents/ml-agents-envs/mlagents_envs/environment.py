@@ -216,6 +216,7 @@ class UnityEnvironment(BaseEnv):
             self._close(0)
             raise
 
+
         if not UnityEnvironment.check_communication_compatibility(
             aca_params.communication_version,
             UnityEnvironment.API_VERSION,
