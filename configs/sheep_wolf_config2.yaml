@@ -1,0 +1,67 @@
+Sheep:
+  trainer: ppo
+  batch_size: 10
+  beta: 5.0e-3
+  buffer_size: 100
+  epsilon: 0.2
+  hidden_units: 128
+  lambd: 0.95
+  learning_rate: 3.0e-4
+  learning_rate_schedule: linear
+  max_steps: 5.0e6
+  memory_size: 128
+  normalize: false
+  num_epoch: 3
+  num_layers: 2
+  self_play:
+    # Size of the sliding window of past snapshots from
+    # which the agent's opponents are sampled.
+    window: 10
+    # Probability an agent will play against the latest opponent policy.
+    play_against_latest_model_ratio: 0.5
+    # Number of trainer steps between snapshots.
+    save_steps: 500
+    # Number of ghost steps (not trainer steps) between
+    # swapping the opponents policy with a different snapshot.
+    # Only matters if number of agents is different on teams
+    swap_steps: 1000
+    # change teams after this many steps
+    team_change: 1000
+  sequence_length: 128
+  summary_freq: 1000
+  time_horizon: 64
+  use_recurrent: false
+  reward_signals:
+    extrinsic:
+      strength: 1.0
+      gamma: 0.99
+Wolf:
+  trainer: ppo
+  batch_size: 10
+  beta: 5.0e-3
+  buffer_size: 100
+  epsilon: 0.2
+  hidden_units: 128
+  lambd: 0.95
+  learning_rate: 3.0e-4
+  learning_rate_schedule: linear
+  max_steps: 5.0e6
+  memory_size: 128
+  normalize: false
+  num_epoch: 3
+  num_layers: 2
+  self_play:
+    window: 10
+    play_against_latest_model_ratio: 0.5
+    save_steps: 500
+    swap_steps: 1000
+    # change teams after this many steps
+    team_change: 1000
+  sequence_length: 128
+  summary_freq: 1000
+  time_horizon: 64
+  use_recurrent: false
+  reward_signals:
+    extrinsic:
+      strength: 1.0
+      gamma: 0.99
